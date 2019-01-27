@@ -33,7 +33,7 @@ $WhiteListedApps = @(
 "Microsoft.ZuneVideo"
 )
 
-# To use this script with ofline image state:  Get-AppxProvisionedPackage -Path "c:\offline"
+# To use this script with offline image state:  Get-AppxProvisionedPackage -Path "c:\offline"
 
 try { $apps = Get-AppxProvisionedPackage -online | ForEach-Object {
 
