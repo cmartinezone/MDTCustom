@@ -2,7 +2,7 @@
 
 #Configuration Variables:
 $Date = get-date -Format g
-$Your_Host = " "
+$Your_Host = ""
 $URL = "http://" + $Your_Host + ":9801/MDTMonitorData/Computers/"
 $HTML_Deployment_List = "status.htm" #path location and file named in the web server
 
@@ -154,25 +154,15 @@ Else
 		 $NB_Runnning     =  $Total_Running.Count
 		 $NB_Unresponsive =  $Total_Unresponsive.Count		
 		
-		If ($NB_Success -eq $null)
-			{
-				$NB_Success = 0
-			}
-			
-		If ($NB_Failed -eq $null)
-			{
-				$NB_Failed = 0
-			}
+		 if (	$Total_Sucess   	-eq  $false ) { $NB_Success = 0 }
+		 if (	$Total_Failed    	-eq  $false ) { $NB_Failed = 0 }
+		 if (	$Total_Running  	-eq  $false ) { $NB_Runnning = 0 }
+		 if (	$Total_Unresponsive -eq  $false ) { $NB_Unresponsive = 0 }
 
-		If ($NB_Runnning -eq $null)
-			{
-				$NB_Runnning = 0
-			}
-
-		If ($NB_Unresponsive -eq $null)
-			{
-				$NB_Unresponsive = 0
-			}			
+		If (	$NB_Success  -eq  $null	)	{ $NB_Success = 0 }
+		If (	$NB_Failed   -eq  $null	)   { $NB_Failed  = 0 }
+        If (	$NB_Runnning -eq  $null	)	{ $NB_Runnning= 0 }
+		If (    $NB_Unresponsive -eq $null) { $NB_Unresponsive = 0 }			
 		
 		
 		If (($NB_Failed -ne 0) -or ($NB_Unresponsive -ne 0))
