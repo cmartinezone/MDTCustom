@@ -1,4 +1,4 @@
-# Contact Carlos Martinez for any issue with the script - martinezmachuca@nih.gov
+# Contact Carlos Martinez for any issue with the script - @cmartinezone
 $Date = get-date -Format g
 $Your_Host = " "
 
