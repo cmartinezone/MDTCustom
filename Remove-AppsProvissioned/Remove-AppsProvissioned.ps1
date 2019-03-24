@@ -34,13 +34,20 @@ $WhiteListedApps = @(
 )
 
 # To use this script with offline image state:  Get-AppxProvisionedPackage -Path "c:\offline"
-
-try { $apps = Get-AppxProvisionedPackage -online | ForEach-Object {
+try 
+{ 
+    $apps = Get-AppxProvisionedPackage -online | ForEach-Object {
 
     if (($_.DisplayName -notin $WhiteListedApps)) {
+
     Write-Host "Removing the following Built-in app:" -ForegroundColor Green
     Write-Host "Deprovisioned:" $_.DisplayName -ForegroundColor yellow
-    Remove-AppxProvisionedPackage -online -PackageName $_.PackageName } 
+    Remove-AppxProvisionedPackage -online -PackageName $_.PackageName 
+
+    #Progress bar added  3\21\2018
+    Write-Progress -Activity 'Removing:' -Status $_.DisplayName -PercentComplete 100 
+    Start-Sleep -Seconds 1
+    } 
     }
     
 }
