@@ -26,14 +26,14 @@ if ($Computer.Manufacturer -eq "Dell Inc.") {
         switch ($Model.cctk) {
             "4.2" { 
                 .\DellCCTK\4.2\cctk.exe --SetupPwd=$TempPassword
-                .\DellCCTK\4.2\cctk.exe -i .\Settings_Templates\ $filesettings --ValSetupPwd=$TempPassword
+                .\DellCCTK\4.2\cctk.exe -i .\Settings_Templates\$filesettings --ValSetupPwd=$TempPassword
                 .\DellCCTK\4.2\cctk.exe --SetupPwd= --ValSetupPwd=$TempPassword
 
             }
             "4.1" { 
                 .\DellCCTK\4.1\HAPI\HAPIInstall.bat 
                 .\DellCCTK\4.1\cctk.exe --SetupPwd=$TempPassword
-                .\DellCCTK\4.1\cctk.exe -i .\Settings_Templates\ $filesettings --ValSetupPwd=$TempPassword
+                .\DellCCTK\4.1\cctk.exe -i .\Settings_Templates\$filesettings --ValSetupPwd=$TempPassword
                 .\DellCCTK\4.1\cctk.exe --SetupPwd= --ValSetupPwd=$TempPassword
                 .\DellCCTK\4.1\HAPI\HAPIUninstall.bat
             }
