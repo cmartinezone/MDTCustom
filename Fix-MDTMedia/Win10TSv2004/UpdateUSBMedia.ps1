@@ -13,6 +13,8 @@ Get-Volume | Select-Object -Property DriveLetter -ExpandProperty DriveLetter | %
 
         #Download patch zip 
 
+        Write-host "Found USB Media"
+
     }
 
 }
